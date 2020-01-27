@@ -30,7 +30,7 @@ pkgTest <- function(pkg){
 lapply(c(),  pkgTest)
 
 # set working directory
-setwd("C:/Documents/GitHub/QTM200Spring2020/problem_sets/PS1")
+setwd("C:/Users/yyh/Documents/GitHub/QTM200Spring2020/problem_sets/PS1")
 
 
 #####################
@@ -74,12 +74,13 @@ plot(expenditure$X1, expenditure$Y, main = "Public education Expenditure vs. per
 #The best fit line
 abline(lm(expenditure$Y~expenditure$X1))
 
+#X2
 plot(expenditure$X2, expenditure$Y, main = "Public education Expenditure vs. underaged population", 
                                     xlab = "number of resident per thousands under 18",
                                     ylab = "expenditure per capita")
 #The best fit line
 abline(lm(expenditure$Y~expenditure$X2))
-
+#X3
 plot(expenditure$X3, expenditure$Y, main = "Public education Expenditure vs. urban population", 
                                     xlab = "number of urban resident per thousands",
                                     ylab = "expenditure per capita")
@@ -101,3 +102,8 @@ summary(expenditure$YR)
 boxplot(expenditure$Y~expenditure$YR, main = "Public education Expenditure vs. Regions",
                                       xlab = "Regions",
                                       ylab = "expenditure per capita")
+#Y vs X1 plus regional information
+plot(expenditure$X1, expenditure$Y, main = "Public education Expenditure vs. personal income", 
+     xlab = "personal income per capita",
+     ylab = "expenditure per capita", col = expenditure$Region, pch = expenditure$Region)
+legend(x="topright", legend = levels(expenditure$YR), col = c(1,2,3,4), pch= c(1,2,3,4))

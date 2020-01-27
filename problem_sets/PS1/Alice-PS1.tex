@@ -81,13 +81,13 @@
 	A private school counselor was curious about the average of IQ of the students in her school and took a random sample of 25 students' IQ scores. The following is the data set:
 	\vspace{.5cm}
 	
-	\lstinputlisting[language=R, firstline=40, lastline=40]{PS1.R}
+	\lstinputlisting[language=R, firstline=40, lastline=40]{Alice-PS1.R}
 	
 	\vspace{.5cm}
 	
 	\noindent Find a 90\% confidence interval for the student IQ in the school assuming the population of IQ from which our random sample has been selected is normally distributed. 
 	
-	\lstinputlisting[language=R, firstline=42, lastline=52]{PS1.R}
+	\lstinputlisting[language=R, firstline=42, lastline=51]{Alice-PS1.R}
 	
 	\noindent We are 90\% confident that the population IQ lies within the range of 93.95993 to 102.92007
 	 
@@ -95,13 +95,13 @@
 	\section*{Question 2 (25 points)}
 	A private school counselor was curious  whether  the average of IQ of the students in her school is higher than the average IQ score 100 among all the schools in the country. She took a random sample of 25 students' IQ scores. The following is the data set:
 	\vspace{.5cm}
-	\lstinputlisting[language=R, firstline=57, lastline=57]{PS1.R}  
+	\lstinputlisting[language=R, firstline=57, lastline=57]{Alice-PS1.R}  
 	\vspace{.5cm}
 	
 	\noindent Conduct a test with 0.05 significance level assuming the population of IQ from which our random sample has been selected is normally distributed. 
 	
 	\vspace{.5cm}
-	\lstinputlisting[language=R, firstline=58, lastline=60]{PS1.R} 
+	\lstinputlisting[language=R, firstline=57, lastline=60]{Alice-PS1.R} 
 	Since p-value = 0.7215, which is greater than significance level 0.05, This does not reject the null hypothesis and thus we cannot conclude that the school mean IQ is higher than the country's mean IQ	
 	\vspace{1cm}
 		
@@ -125,21 +125,30 @@
 	\vspace{.5cm}
 	\noindent Explore the \texttt{expenditure} data set and import data into \texttt{R}.
 	\vspace{.5cm}
-	\lstinputlisting[language=R, firstline=66, lastline=66]{PS1.R}  
+	\lstinputlisting[language=R, firstline=66, lastline=66]{Alice-PS1.R}  
 	\vspace{.5cm}
 	\begin{itemize}		
 		\item
 		Please plot the relationships among \emph{Y}, \emph{X1}, \emph{X2}, and \emph{X3}? What are the correlations among them (you just need to describe the graph and the relationships among them)?
+		 
+		As we can see in \emph{Figure 1} and \emph{Figure 3}, public education expenditure is positively correlated with both income and urban population; As seen in \emph{Figure 2}, education expenditure is weakly negatively correlated with number of residents at school age. 
 		\vspace{.5cm}
 		\item
-		Please plot the relationship between \emph{Y} and \emph{Region}? On average, which region has the highest per capita expenditure on public education?
+		Please plot the relationship between \emph{Y} and \emph{Region}? On average, which region has the highest per capita expenditure on public education? 
+		
+		As seen in \emph{Figure 4}, All four regions have very different expenditures on public education. The West has by far the highest per capita expenditure on public education and the three other regions are all comparatively lower.
+		
 		\vspace{.5cm}
 		\item
 		Please plot the relationship between \emph{Y} and \emph{X1}? Describe this graph and the relationship. Reproduce the above graph including one more variable \emph{Region} and display different regions with different types of symbols and colors.
+
+        As seen in \emph{Figure 5}, the public educational expenditure is positively correlated to personal income per capita. Generally, there are no evident clusters for any of the regions, but differences in regional distribution are still distinct. We can also see from the distribution of the green plus sign that the South contributed to this correlation the most, with other regions spreading more to the upper right.
+		\vspace{.5cm}        
+		\lstinputlisting[language=R, firstline=70, lastline=109]{Alice-PS1.R}		
+		
 	\end{itemize}
-      
-    \section*{Graphs}
-	\begin{figure}
+    \clearpage  
+    \begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{Y vs X1.jpeg}
 		\caption{Y and X1}
@@ -155,12 +164,16 @@
 		\caption{Y and X3}
 		\label{fig:YX3}
 		
-		\clearpage
+	\end{figure}
+    \begin{figure}
 		\centering
 		\includegraphics[width=0.6\linewidth]{Y vs Region.jpeg}
 		\caption{Y and Region}
 		\label{fig:YR}
-		\newpage				
+		\vspace{1cm}	
+		\includegraphics[width=\linewidth]{Y vs X1R.jpeg}
+		\caption{Y vs. X1 with Regions labeled}
+		\label{fig:YX1R}						
 	\end{figure}
 
 \end{document}
