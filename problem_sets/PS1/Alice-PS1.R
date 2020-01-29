@@ -56,7 +56,7 @@ confint90 #[1] 93.95993 102.92007
 
 y <- c(105, 69, 86, 100, 82, 111, 104, 110, 87, 108, 87, 90, 94, 113, 112, 98, 80, 97, 95, 111, 114, 89, 95, 126, 98)
 #T test assuming that the school average IQ is higher than the country average (100)
-t.test(y, mu=100, alternative="greater", conf.level=0.95)
+t.test(y, mu=100, alternative="greater", conf.level=0.95, var.equal = FALSE)
 #t = -0.59574, df = 24, p-value = 0.7215
 
 #####################
