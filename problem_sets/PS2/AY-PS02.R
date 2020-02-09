@@ -1,6 +1,5 @@
 #Set working directory
-#setwd("C:/Users/hyan249/Documents")
-
+setwd("/Users/hyan249/Documents/GitHub/QTM200Spring2020/problem_sets/PS2")
 #############Question 1##############
 #Create the table
 data1 <- c(14, 6, 7, 7, 7, 1)
@@ -53,4 +52,27 @@ cor.test(data2$water, data2$reserved)
 
 ################Question 3#################
 #Import dataset
-data3 <- read.csv()
+data3 <- read.csv("fruitfly.csv", header = T)
+summary(data3) #25 flies, mean lifespan = 57.44
+#View the distribution of lifespan
+hist(data3$lifespan) #Approximately normal
+#Plot lifespan and thorax and calculate the correlation coefficient
+plot(data3$lifespan~data3$thorax)
+#The distribution can be discribed as a positive linear association
+cor(data3$lifespan, data3$thorax)#[1] 0.6364835
+#correlation coefficient is closer to 1, which means it is a relatively highly positive correlation
+#Linear regression
+lm2 <- lm(data3$lifespan~data3$thorax)
+summary(lm2)
+abline(lm2)
+#test for the significance of the correlation
+cor.test(data3$lifespan, data3$thorax)
+#p_value = 1.497e-15, which is highly significant at a 95% confidence level, we can therefore reject the null hypothesis and conclude that the correlation between lifespan and thorax is significant
+#90% confidence interval for the slope of the model
+#Method 1
+error <- 
+confint <- c(144.33-15.77*qt(0.9, df = 123), 144.33+15.77*qt(0.9, df = 123))
+confint
+#Method 2
+confint(lm2, parm = "data3$thorax", level = 0.9)
+
