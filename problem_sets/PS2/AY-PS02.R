@@ -76,3 +76,26 @@ confint
 #Method 2
 confint(lm2, parm = "data3$thorax", level = 0.9)
 
+#predict a lifespan of a individual fruit fly
+predicted_lifespan <- 0.8*144.33-61.05
+predicted_lifespan #[1] 54.414
+#predict the average lifespan for thorax = 0.8 and the respective confidence interval
+predict_lm2 <- predict.lm(lm2, thorax = 0.8, df = 123, interval = "confidence")
+#calculate the average
+mean(predict_lm2) #[1] 57.44
+#Find the confidence interval (at 0.95)
+summary(predict_lm2)  
+predicted_confint <- c(54.16, 60.72)
+predicted_confint #confident interval shown aboved by summary of the lwr and upr
+
+#plot the fitted lifespan for a sequence of thorax values
+install.packages("ggplot2")
+library(ggplot2)
+ggplot(data = data3, aes(x = thorax, y = lifespan)) +
+  geom_point() +
+  stat_smooth(method = "lm", col = "dodgerblue3") +
+  theme(panel.background = element_rect(fill = "white"),
+        axis.line.x=element_line(),
+        axis.line.y=element_line()) +
+  ggtitle("Linear Model Fitted to Data")
+  
