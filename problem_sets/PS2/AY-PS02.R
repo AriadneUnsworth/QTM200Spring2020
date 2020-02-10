@@ -23,8 +23,10 @@ p_value#[1] 0.1502306 > alpha = 0.1
 #Check with R
 chisq.test(bribe, correct = TRUE)#same result
 
-#Calculate standardized residuals
-bribeR <- c(data1-Expected_Value)/sqrt(Expected_Value)
+#Calculate standardized(adjusted) residuals
+row.prop <- c(27/42, 27/42, 27/42, 15/42, 15/42, 15/42)
+col.prop <- c(21/41, 13/42, 8/42, 21/42, 13/42, 8/42)
+bribeR <- c((data1-Expected_Value)/sqrt(Expected_Value*(row.prop-1)*(col.prop-1)))
 #View standardized residuals
 plot(bribeR)
 mean(bribeR)#[1] -0.007950638
