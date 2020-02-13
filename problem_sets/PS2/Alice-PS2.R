@@ -71,22 +71,19 @@ cor.test(y, x)
 
 #90% confidence interval for the slope of the model
 #Method 1
-confint <- c(144.33-15.77*qt(0.9, df = 123), 144.33+15.77*qt(0.9, df = 123))
+confint <- c(144.33-15.77*qt(0.90, df = 123), 144.33+15.77*qt(0.90, df = 123))
 confint
 #Method 2
-confint(lm2, "x", level = 0.9)
+confint(lm2, "x", level = 0.90)
 
 #predict a lifespan of a individual fruit fly
 predicted_lifespan <- 0.8*144.33-61.05
 predicted_lifespan #[1] 54.414
 #predict the average lifespan for thorax = 0.8 and the respective confidence interval
-predict.lm(lm2, newdata=data.frame(x=0.8), df = 123, interval = "confidence")
+predict(lm2, newdata=data.frame(x=0.8), df = 123, interval = "confidence", level = 0.90)
 
-#calculate the average
-mean(predict_lm2) #[1] 57.44
 #Find the confidence interval (at 0.95)
-summary(predict_lm2)  
-predicted_confint <- c(54.16, 60.72)
+
 predicted_confint #confident interval shown aboved by summary of the lwr and upr
 
 #plot the fitted lifespan for a sequence of thorax values
