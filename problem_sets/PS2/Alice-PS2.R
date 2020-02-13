@@ -82,10 +82,6 @@ predicted_lifespan #[1] 54.414
 #predict the average lifespan for thorax = 0.8 and the respective confidence interval
 predict(lm2, newdata=data.frame(x=0.8), df = 123, interval = "confidence", level = 0.90)
 
-#Find the confidence interval (at 0.95)
-
-predicted_confint #confident interval shown aboved by summary of the lwr and upr
-
 #plot the fitted lifespan for a sequence of thorax values
 install.packages("ggplot2")
 library(ggplot2)
