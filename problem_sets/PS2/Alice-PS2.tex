@@ -97,11 +97,11 @@
 	
 	\item [(a)]
 	Calculate the $\chi^2$ test statistic by hand (even better if you can do "by hand" in \texttt{R}).\\
-	\vspace{7cm}
-	
+	\lstinputlisting[language=R, firstline=4, lastline=14]{Alice-PS2.R}
 	\item [(b)]
+	\vspace{1cm}
 	Now calculate the p-value (in \texttt{R}).\footnote{Remember frequency should be $>$ 5 for all cells, but let's calculate the p-value here anyway.}  What do you conclude if $\alpha = .1$?\\
-	
+	\lstinputlisting[language=R, firstline=18, lastline=24]{Alice-PS2.R}
 	\newpage
 	\item [(c)] Calculate the standardized residuals for each cell and put them in the table below.
 	\vspace{1cm}
@@ -112,16 +112,20 @@
 			& Not Stopped & Bribe requested & Stopped/given warning \\
 			\\[-1.8ex] 
 			\hline \\[-1.8ex]
-			Upper class  &  &  &  \\
+			Upper class  & 0.326 & -1.642 & 1.523 \\
 			\\
-			Lower class &  &   &   \\
-			
+			Lower class & -0.322 & 1.642  & -1.523  \\
 		\end{tabular}
 	\end{table}
 	
+	\lstinputlisting[language=R, firstline=26, lastline=37]{Alice-PS2.R}
 	
-	\vspace{7cm}
 	\item [(d)] How might the standardized residuals help you interpret the results?  
+	\begin{figure}[h!]
+		\label{Residual}
+		\includegraphics[width=0.7\textwidth]{Residual.jpeg}
+	\end{figure}
+	\\Since our residuals are relatively large and evenly distributed, we cannot decern a significant difference between our observed value and expected value, however to make sure of the lack of dependency we have to do a chi-sqr test.
 	
 \end{enumerate}
 \newpage
@@ -136,18 +140,26 @@ Chattopadhyay and Duflo were interested in whether women promote different polic
 	\vspace{.5cm}
 	\centering
 	\label{fig:women_desc}
-	\includegraphics[width=1.1\textwidth]{../women_desc.png}
+	\includegraphics[width=1.1\textwidth]{women_desc.png}
 \end{figure}		
 
 \newpage
 \begin{enumerate}
 	\item [(a)] State a null and alternative (two-tailed) hypothesis. 
 	
-	\vspace{6cm}
+	Our null hypothesis is:
+	\\There's no association between whether a village have female leaders position reserved or not and the number of new or repaired drinking water facilities in that village
+	\\Our alternative hypothesis is:
+	\\There's an association between whether a village have female leaders position reserved or not and the number of new or repaired drinking water facilities in that village
+
+	\vspace{.5cm}
 	\item [(b)] Run a bivariate regression to test this hypothesis in \texttt{R} (include your code!).
-	
-	\vspace{6cm}
+	\lstinputlisting[language=R, firstline=41, lastline=49]{Alice-PS2.R}
+	\vspace{.5cm}
 	\item [(c)] Interpret the coefficient estimate for reservation policy. 
+	\vspace{.5cm}
+	\\Coefficient estimate is 9.252, which means that for each unit increase in reserved female positions, there will be 9.252 more repaired or new drinking water facilities
+	
 \end{enumerate}
 
 \newpage
@@ -173,17 +185,52 @@ There is a physiological cost of reproduction for fruit flies, such that it redu
 	
 	\item
 	Import the data set and obtain summary statistiscs and examine the distribution of the overall lifespan of the fruitflies.  
+	\lstinputlisting[language=R, firstline=52, lastline=56]{Alice-PS2.R}
+	\begin{figure}[h!]
+		\label{Q2}
+		\includegraphics[width=0.9\textwidth]{Q2.png}
+	\end{figure}
 
 \newpage
 	\item
 	Plot \texttt{lifespan} vs \texttt{thorax}. Does it look like there is a linear relationship? Provide the plot. What is the correlation coefficient between these two variables?
-		\vspace{6cm}
+	\begin{figure}[h!]
+		\label{figure1}
+		\includegraphics[width=0.9\textwidth]{Q2-cor.png}
+	\end{figure}
+	\lstinputlisting[language=R, firstline=57, lastline=61]{Alice-PS2.R}
+	\vspace{.5cm}	
 	\item
 	Regress \texttt{lifespan} on \texttt{thorax}.  Interpret the slope of the fitted model.
-			\vspace{6cm}
+	
+	\lstinputlisting[language=R, firstline=62, lastline=67]{Alice-PS2.R}
+	\begin{Verbatim}
+	Coefficients:
+	Estimate      Std. Error       t value      Pr(>|t|)    
+	(Intercept)    -61.05      13.00  -4.695  7.0e-06 ***
+	data3$thorax   144.33      15.77   9.152  1.5e-15 ***
+	
+	Residual standard error: 13.6 on 123 degrees of freedom
+	Multiple R-squared:  0.4051,	Adjusted R-squared:  0.4003 
+	F-statistic: 83.76 on 1 and 123 DF,  p-value: 1.497e-15	
+	\end{Verbatim}
+			\vspace{.5cm}
 	\item
 	Test for a significant linear relationship between  \texttt{lifespan} and \texttt{thorax}. Provide and interpret your results of your test.
+	\begin{Verbatim}
+	Pearson's product-moment correlation
 	
+	data:  data3$lifespan and data3$thorax
+	t = 9.1521, df = 123, p-value = 1.497e-15
+	alternative hypothesis: true correlation is not equal to 0
+	95 percent confidence interval:
+	0.5188709 0.7304479
+	sample estimates:
+	cor 
+	0.6364835 
+	
+	\end{Verbatim}
+	\lstinputlisting[language=R, firstline=68, lastline=70]{Alice-PS2.R}
 \newpage
 	\item
 	
@@ -192,14 +239,25 @@ There is a physiological cost of reproduction for fruit flies, such that it redu
 			\vspace{.5cm}
 	\begin{itemize}
 		\item
-		Use the formula for typical confidence intervals to find the 90\% confidence interval around the point estimate.		\vspace{.5cm}
+		Use the formula for typical confidence intervals to find the 90\% confidence interval around the point estimate.		
+		\lstinputlisting[language=R, firstline=72, lastline=75]{Alice-PS2.R}
+		The resulting confidence interval is (124.0108, 164.6492)
+		\vspace{.5cm}
 		\item
 		Now, try using the function  \texttt{confint()}  in \texttt{R}.
+		\lstinputlisting[language=R, firstline=76, lastline=77]{Alice-PS2.R}		
 	\end{itemize}
-			\vspace{6cm}
+			\vspace{1cm}
 	\item Use the \texttt{predict()} function in \texttt{R} to (1) predict an individual fruitfly's lifespan when \texttt{thorax}=0.8 and (2) the average \texttt{lifespan} of fruitflies when \texttt{thorax}=0.8 by the fitted model. This requires that you compute prediction and confidence intervals. What are the expected values of lifespan? What are the prediction and confidence intervals around the expected values? 
-	
-			\vspace{6cm}
+		\lstinputlisting[language=R, firstline=79, lastline=83]{Alice-PS2.R}
+		Result:
+	\begin{Verbatim}
+		       fit      lwr      upr
+		1 54.41478 51.91932 56.91024
+	\end{Verbatim}
+	The expected lifeline is around 54 days
+	\vspace{.5cm}
+			
 	\item	For a sequence of \texttt{thorax} values, draw a plot with their fitted values for \texttt{lifespan}, as well as the prediction intervals and confidence intervals.
 
 
