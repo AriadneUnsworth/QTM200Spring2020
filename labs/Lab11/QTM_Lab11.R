@@ -33,7 +33,9 @@ View(smoking)
 
 # (1) What is the fitted model for men?
 
-
+smoking$genderfactor <- ifelse(smoking$gender == "Male", 1, 0)
+Men <- lm(amtWeekdays~age + genderfactor, data = smoking)
+summary(Men)
 # (2) What is the fitted model for women?
 
 
