@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.26)  17 FEB 2020 04:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.26)  17 FEB 2020 14:39
 entering extended mode
 **./Alice-PS3.tex
 (Alice-PS3.tex
@@ -1187,7 +1187,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 216.
 Here is how much of TeX's memory you used:
  24046 strings out of 492482
  420219 string characters out of 3122481
- 752929 words of memory out of 3000000
+ 752930 words of memory out of 3000000
  27731 multiletter control sequences out of 15000+200000
  14724 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1207,7 +1207,7 @@ amsfonts/cm/cmr6.pfb><C:/Users/yyh/AppData/Local/Programs/MiKTeX 2.9/fonts/type
 1/public/amsfonts/cm/cmr8.pfb><C:/Users/yyh/AppData/Local/Programs/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/yyh/AppData/Local/Programs/M
 iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Alice-PS3.pdf (9 pages, 580447 bytes).
+Output written on Alice-PS3.pdf (9 pages, 580410 bytes).
 PDF statistics:
  257 PDF objects out of 1000 (max. 8388607)
  134 named destinations out of 1000 (max. 500000)
