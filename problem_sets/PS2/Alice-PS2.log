@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.26)  17 FEB 2020 04:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.1.26)  14 MAR 2020 18:03
 entering extended mode
 **./Alice-PS2.tex
 (Alice-PS2.tex
@@ -1202,7 +1202,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 275.
 Here is how much of TeX's memory you used:
  24051 strings out of 492482
  420077 string characters out of 3122481
- 769048 words of memory out of 3000000
+ 769049 words of memory out of 3000000
  27755 multiletter control sequences out of 15000+200000
  15070 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
